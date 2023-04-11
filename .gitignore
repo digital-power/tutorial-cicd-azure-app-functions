@@ -1,0 +1,21 @@
+# IDEs
+.idea
+.vscode
+
+# Private
+private
+
+# Azure app functions
+appsettings.json
+local.settings.json
+
+# Python Environments
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Azurite artifacts
+__blobstorage__
+__queuestorage__
+__azurite_db*__.json
