@@ -29,11 +29,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-#      - name: Create and start virtual environment
-#        run: |
-#          python -m venv venv
-#          source venv/bin/activate
-
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -58,12 +53,6 @@ jobs:
         with:
           name: python-app
           path: .
-
-      - name: test variables
-        run: |
-          echo Environment is: ${{ inputs.deploy-to }}
-          echo TEST variable is: ${{ vars.TEST }}
-#          echo Publish profile is: "${{ secrets.AZURE_APP_FUNCTION_PUBLISH_PROFILE }}"
 
       - name: 'Deploy to Azure Functions'
         uses: Azure/functions-action@v1
