@@ -2,6 +2,12 @@
 .idea
 .vscode
 
+# Mac
+.DS_Store
+
+# Terraform
+*.terraform*
+
 # Private
 private
 
