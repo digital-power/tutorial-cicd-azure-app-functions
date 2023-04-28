@@ -10,11 +10,6 @@ on:
       deploy-to:
         type: environment
         default: dev
-      slot:
-        type: choice
-        options:
-          - production
-        default: production
 
 env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
@@ -34,10 +29,10 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
+#      - name: Create and start virtual environment
+#        run: |
+#          python -m venv venv
+#          source venv/bin/activate
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -67,7 +62,6 @@ jobs:
       - name: test variables
         run: |
           echo Environment is: ${{ inputs.deploy-to }}
-          echo Slot deployment is: ${{ inputs.slot}}
           echo TEST variable is: ${{ vars.TEST }}
 #          echo Publish profile is: "${{ secrets.AZURE_APP_FUNCTION_PUBLISH_PROFILE }}"
 
@@ -76,7 +70,6 @@ jobs:
         id: deploy-to-function
         with:
           app-name: ${{env.AZURE_FUNCTION_BASENAME}}-${{inputs.deploy-to}}-function-app
-          slot-name: ${{ inputs.slot }}
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZURE_APP_FUNCTION_PUBLISH_PROFILE }}
           scm-do-build-during-deployment: true
