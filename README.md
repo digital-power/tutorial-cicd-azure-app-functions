@@ -3,8 +3,9 @@
 This repository contains the source code for the article [Deploying Azure Functions with Terraform and GitHub Workflows](https://digital-power.com/en/).
 
 In the article, we start by discussing Serverless Functions. Then we demonstrate how to use Terraform files to simplify
-the process of deploying a target infrastructure, use GitHub workflows to manage continuous integration and deployment,
-and how to use branching strategies to selectively deploy code changes to specific instances of Function Apps.
+the process of deploying a target infrastructure, how to create a Function App in Azure, the use GitHub workflows to
+manage continuous integration and deployment, and how to use branching strategies to selectively deploy code
+changes to specific instances of Function Apps.
 
 ## Prerequisites
 
